@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.sbui-btn {
+  background-color: rgba(59, 130, 246, var(--tw-bg-opacity)) !important;
+}
+
+.sbui-btn:hover {
+  background-color: rgba(37, 99, 235, var(--tw-bg-opacity)) !important;
+}
+
+.sbui-typography-link {
+  color: rgba(59, 130, 246, var(--tw-bg-opacity)) !important;
+}
+/* 
+.sbui-typography-link:hover {
+  color: rgba(37, 99, 235, var(--tw-bg-opacity)) !important;
+} */

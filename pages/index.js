@@ -1,22 +1,30 @@
-import { useState, useEffect } from 'react'
-import { supabase } from '../utils/supabaseClient'
-import Auth from '../components/Auth'
-import Account from '../components/Account'
+import { useState, useEffect } from "react";
+import { supabase } from "../utils/supabaseClient";
+import Auth from "../components/Auth";
+import Account from "../components/Account";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
-  const [session, setSession] = useState(null)
+  const [session, setSession] = useState(null);
 
   useEffect(() => {
-    setSession(supabase.auth.session())
+    setSession(supabase.auth.session());
 
     supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
-  }, [])
+      setSession(session);
+    });
+  }, []);
 
   return (
-    <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? <Auth /> : <Account />}
+    <div>
+      <Navbar />
+      {!session ? (
+        <div className="max-w-lg mx-auto p-4">
+          <Auth />
+        </div>
+      ) : (
+        <Account />
+      )}
     </div>
-  )
+  );
 }
